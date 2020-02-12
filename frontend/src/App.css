@@ -1,0 +1,8 @@
+.bankCard{
+    width: 400px;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(99,99,99,1);
+    padding: 2%;
+    margin: 5%;
+}
