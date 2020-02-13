@@ -6,19 +6,28 @@ class Branch:
     dbpath = "banks.db"
     tablename = 'Branch'
     
-    def __init__(self, **kwargs):
-        self.pk = kwargs.get('pk')
-        self.branch_id = kwargs.get('branch_id')
-        self.address = kwargs.get('address')
-        self.city = kwargs.get('city')
-        self.state = kwargs.get('state')
+    # def __init__(self, **kwargs):
+    #     self.pk = kwargs.get('pk')
+    #     self.branch_id = kwargs.get('branch_id')
+    #     self.address = kwargs.get('address')
+    #     self.city = kwargs.get('city')
+    #     self.state = kwargs.get('state')
+        
+    def __init__(self, branch_id, address, city, state):
+        
+        self.branch_id = branch_id
+        self.address = address
+        self.city = city
+        self.state = state
         
     
     def save(self):
-        if self.pk is None:
-            self._insert()
-        else:
-            self._update()
+        self._insert()
+        
+        # if self.pk is None:
+        #     self._insert()
+        # else:
+        #     self._update()
             
     def _insert(self):
         with sqlite3.connect(self.dbpath) as conn:
